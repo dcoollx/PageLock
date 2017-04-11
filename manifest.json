@@ -1,0 +1,27 @@
+{
+	"author":"David",
+	"name":"PageLock",
+	"description":"prevent XSS and clickJacking",
+	"manifest_version":2,
+	"version":"1.0",
+	
+	"content_scripts":[{
+		"matches":["*://*/*"],
+		"js":["main.js"]
+	}],
+	"icons":{
+	"48":"icons/main-48.png"
+	
+		},
+	"permissions":[
+		"activeTab"
+	],
+	"browser_action":{
+		"default_icon":"icons/main-48.png",
+		"default_title":"PageLock",
+		"default_popup":"popups/settings.html"
+	
+	}
+
+
+}
