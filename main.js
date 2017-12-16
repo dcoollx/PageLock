@@ -14,7 +14,7 @@
 			break;
 		}
 	}
-	}else{ console.log("no metas found");
+	}else{ console.log("no metas found");}
 	if(!enforced)
 	{
 		console.log("no CSP found adding to page based on preference");
