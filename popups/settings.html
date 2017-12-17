@@ -17,7 +17,7 @@ margin:none;
 
 
 <span>Security Level
-<select default = "HIGH">
+<select default = "3">
 	<option value = 0>OFF</option>
 	<option value = 1>LOW</option>	
 	<option value = 2>MID</option>
@@ -27,35 +27,34 @@ margin:none;
 <ul>
 
 Block off-site images
-<input type="checkbox">
+<input type="checkbox" default="true"/>
 </li>
 <li>
 Block video/sound
-<input id="mediaToggleSwitch" type="checkbox" ontoggle ="mediatog" >
+<input id="mediaToggleSwitch" type="checkbox" />
 </li>
 <li>
-Block Frames<input id="frameToggleSwitch" type="checkbox" ontoggle="frametog">
+Block Frames<input id="frameToggleSwitch" type="checkbox"/>
 </li>
 
 
 </ul>
+<input type="button" value="apply" onclick = "rebuild()"/>
 <script>
 //build CSP statement based on settings then pass to main JS file-not implemented
 var media = false;
 var img = false;
 function rebuild(){
 var CSP = "default-src 'self'";
-if(!media){
-	CSP += " media-src *"
+if(!document.getElementById('mediaToggleSwitch').value){
+		CSP += 'media-src: *';
+
+	}
+	alert(CSP);
+	return CSP;
 }
-}
-function mediatog(){
-	media = document.getElementById("mediatoggleSwitch").value;
-	rebuild();
-} 
-function imgtog(e){
-//rebuild();
-}
+
+
 
 </script>
 </body>
